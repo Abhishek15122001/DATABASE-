@@ -1,0 +1,36 @@
+<div class="form-area">
+  <h1>User Details</h1>
+<br><br>
+<input type="text" placeholder="name" [(ngModel)]="name">
+<br><br>
+<input type="text" placeholder="email" [(ngModel)]="email">
+<br><br>
+<textarea name="" cols="30" rows="10" placeholder="address" [(ngModel)]="address"></textarea >
+<br><br>
+<button (click)="onclick()">Save Data</button>
+</div>
+<div *ngIf="userArray.length>0">
+  <div class="table-area">
+  <table width="900" border="" >
+    <thead>
+        <th>S.no</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Action</th>
+      
+    </thead>
+  
+      <tr *ngFor="let user of userArray; let index=index">
+        <td>{{index+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address}}</td>
+        <td><button (click)="ondelete(index)">delete</button></td>
+      </tr>
+  
+  </table>
+</div></div>
+<div *ngIf="userArray.length==0">
+  <p style="text-align: center;margin-top: 90px;color: grey;">no data found</p>
+</div>
